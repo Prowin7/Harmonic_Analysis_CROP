@@ -32,13 +32,13 @@ Where:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    SAR DATA ACQUISITION                          │
-│  (Sentinel-1, Radarsat-2, etc. - 15-day intervals)             │
+│                    SAR DATA ACQUISITION                         │
+│  (Sentinel-1, Radarsat-2, etc. - 15-day intervals)              │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│              TEMPORAL BACKSCATTER ANALYSIS                       │
+│              TEMPORAL BACKSCATTER ANALYSIS                      │
 │  Extract average σ⁰ (backscatter coefficient) per date          │
 └────────────────────────┬────────────────────────────────────────┘
                          │
@@ -46,7 +46,7 @@ Where:
 ┌─────────────────────────────────────────────────────────────────┐
 │           FOURIER SERIES DECOMPOSITION (MATLAB)                 │
 │  • Decompose S(t) into 16 harmonic terms                        │
-│  • Extract aₙ, bₙ, amplitude, phase, frequency                 │
+│  • Extract aₙ, bₙ, amplitude, phase, frequency                   │
 │  • Perform significance testing (p < 0.05)                      │
 └────────────────────────┬────────────────────────────────────────┘
                          │
@@ -55,7 +55,7 @@ Where:
 │           IMAGE SYNTHESIS (SNAP TOOL)                           │
 │  • Use trapezoidal rule with significant coefficients           │
 │  • Generate 10 SAR images per crop sample                       │
-│  • Formulas: S(t) = Σ[aₙ cos(nωt) + bₙ sin(nωt)]               │
+│  • Formulas: S(t) = Σ[aₙ cos(nωt) + bₙ sin(nωt)]                 │
 └────────────────────────┬────────────────────────────────────────┘
                          │
                          ↓
@@ -71,7 +71,7 @@ Where:
 ┌─────────────────────────────────────────────────────────────────┐
 │              CNN MODEL TRAINING & CLASSIFICATION                │
 │  Input: 10 temporal SAR images                                  │
-│  Output: Crop stage (Sowing / Maturity / Harvesting)           │
+│  Output: Crop stage (Sowing / Maturity / Harvesting)            │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
